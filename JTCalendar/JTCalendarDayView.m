@@ -256,6 +256,12 @@ static NSString *const kJTCalendarDaySelected = @"kJTCalendarDaySelected";
 {
     self->_isOtherMonth = isOtherMonth;
     [self setSelected:isSelected animated:NO];
+
+    if (! self.calendarManager.calendarAppearance.showOtherMonthDay && isOtherMonth) {
+        self.hidden = YES;
+    }else{
+        self.hidden = NO;
+    }
 }
 
 - (void)reloadData
