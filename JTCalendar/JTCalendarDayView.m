@@ -19,6 +19,8 @@
     
     int cacheIsToday;
     NSString *cacheCurrentDateText;
+    
+    JTCircleView * circleCenterView;
 }
 @end
 
@@ -68,6 +70,9 @@ static NSString *const kJTCalendarDaySelected = @"kJTCalendarDaySelected";
     {
         circleView = [JTCircleView new];
         [self addSubview:circleView];
+        
+        circleCenterView = [JTCircleView new];
+        [self addSubview:circleCenterView];
     }
     
     {
@@ -119,6 +124,11 @@ static NSString *const kJTCalendarDaySelected = @"kJTCalendarDaySelected";
     circleView.frame = CGRectMake(0, 0, sizeCircle, sizeCircle);
     circleView.center = CGPointMake(self.frame.size.width / 2., self.frame.size.height / 2.);
     circleView.layer.cornerRadius = sizeCircle / 2.;
+    
+    CGFloat smallerSize = sizeCircle - 2;
+    circleCenterView.frame = CGRectMake(0, 0, smallerSize, smallerSize);
+    circleCenterView.center = CGPointMake(self.frame.size.width / 2., self.frame.size.height / 2.);
+    circleCenterView.layer.cornerRadius = smallerSize / 2.;
     
     dotView.frame = CGRectMake(0, 0, sizeDot, sizeDot);
     dotView.center = CGPointMake(self.frame.size.width / 2., (self.frame.size.height / 2.) +sizeDot * 2.5);
@@ -205,6 +215,8 @@ static NSString *const kJTCalendarDaySelected = @"kJTCalendarDaySelected";
             circleView.color = [self.calendarManager.calendarAppearance dayCircleColorSelected];
             textLabel.textColor = [self.calendarManager.calendarAppearance dayTextColorSelected];
             dotView.color = [self.calendarManager.calendarAppearance dayDotColorSelected];
+
+            circleCenterView.hidden = YES;
         }
         else{
             circleView.color = [self.calendarManager.calendarAppearance dayCircleColorSelectedOtherMonth];
@@ -220,6 +232,9 @@ static NSString *const kJTCalendarDaySelected = @"kJTCalendarDaySelected";
             circleView.color = [self.calendarManager.calendarAppearance dayCircleColorToday];
             textLabel.textColor = [self.calendarManager.calendarAppearance dayTextColorToday];
             dotView.color = [self.calendarManager.calendarAppearance dayDotColorToday];
+            
+            circleCenterView.color = [UIColor whiteColor];
+            circleCenterView.hidden = NO;
         }
         else{
             circleView.color = [self.calendarManager.calendarAppearance dayCircleColorTodayOtherMonth];
