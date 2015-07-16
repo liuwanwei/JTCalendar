@@ -47,6 +47,11 @@ typedef NSString *(^JTCalendarMonthBlock)(NSDate *date, JTCalendar *jt_calendar)
 @property (nonatomic) UIColor *menuMonthTextColor;
 
 /**
+ *  The default value of this property is @c whiteColor.
+ */
+@property (nonatomic) UIColor *menuMonthBackgroundColor;
+
+/**
  *	The default value of this property is:
  *	@code [UIFont systemFontOfSize:17.] @endcode
  */
@@ -81,6 +86,12 @@ typedef NSString *(^JTCalendarMonthBlock)(NSDate *date, JTCalendar *jt_calendar)
  *	@code [UIFont systemFontOfSize:11] @endcode
  */
 @property (nonatomic) UIFont *weekDayTextFont;
+
+
+/**
+ *  The default value of this property is @c whiteColor.
+ */
+@property (nonatomic) UIColor *weekDaysBackgroundColor;
 
 #pragma mark - Day
 

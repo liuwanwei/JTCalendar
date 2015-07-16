@@ -66,6 +66,8 @@
 {
     textLabel.textColor = self.calendarManager.calendarAppearance.menuMonthTextColor;
     textLabel.font = self.calendarManager.calendarAppearance.menuMonthTextFont;
+    
+    self.backgroundColor = self.calendarManager.calendarAppearance.menuMonthBackgroundColor;
 }
 
 @end
